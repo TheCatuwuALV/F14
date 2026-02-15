@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Para Abril ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" id="section1">
+        <div class="envelope-wrapper" id="envelope">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>¡Feliz San Valentín!</strong>
+                        <p>
+                            Eres mi persona favorita en todo el mundo.<br>
+                            Gracias por estar aquí.<br>
+                            ❤️<br>
+                            Maukk te amo muchísimo amor.<br>
+                            Feliz 14, nunca lo olvides.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hint-text">Haz click para abrir 💌</div>
+        <button id="nextBtn1" class="next-btn hidden">Siguiente ➡️</button>
+    </div>
+
+    <div class="container hidden" id="section2">
+        <div class="message-box">
+            <p class="romantic-text">
+                "Nunca olvidaré a la hermosa niña de la que me enamoré y que me gustaba sacar foto cuando no veía"
+            </p>
+            
+            <div class="whatsapp-wrapper">
+                <div class="view-once-container" id="viewOnceBtn">
+                    <div class="icon-circle">
+                        <span class="one">1</span>
+                    </div>
+                    <span class="status-text" id="statusText">Foto</span>
+                </div>
+            </div>
+        </div>
+        <button id="nextBtn2" class="next-btn">Siguiente ➡️</button>
+    </div>
+
+    <div class="container hidden" id="section3">
+        <h2 class="collage-title">Tampoco te olvides de nuestra gatija XD 🐱</h2>
+        
+        <div class="collage-grid">
+            <div class="collage-item item-1">
+                <img src="resources/image 2.jpg" alt="Gatija 1" onclick="openCollage(this)">
+            </div>
+            <div class="collage-item">
+                <img src="resources/image 3.jpg" alt="Gatija 2" onclick="openCollage(this)">
+            </div>
+            <div class="collage-item">
+                <img src="resources/image 4.jpg" alt="Gatija 3" onclick="openCollage(this)">
+            </div>
+            <div class="collage-item">
+                <img src="resources/image 5.jpg" alt="Gatija 4" onclick="openCollage(this)">
+            </div>
+            <div class="collage-item">
+                <img src="resources/image 6.jpg" alt="Gatija 5" onclick="openCollage(this)">
+            </div>
+        </div>
+        <button id="nextBtn3" class="next-btn">Siguiente ➡️</button>
+    </div>
+
+    <div class="container hidden" id="section4">
+        <div class="message-box">
+            <p class="romantic-text">
+                "Gracias por ser mi viernes 13 y mi 14 de febrero. Te amo muchísimo Abril :3"
+            </p>
+            
+            <div class="whatsapp-wrapper">
+                <div class="view-once-container" id="viewOnceVideoBtn">
+                    <div class="icon-circle">
+                        <span class="one">1</span>
+                    </div>
+                    <span class="status-text" id="statusVideoText">Video</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="photoModal" class="modal">
+        <span class="close" id="closePhoto">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <div id="videoModal" class="modal">
+        <span class="close" id="closeVideo">&times;</span>
+        <video class="modal-content" id="modalVideo" controls playsinline>
+            <source src="resources/video.mp4" type="video/mp4">
+            Tu navegador no soporta videos.
+        </video>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
