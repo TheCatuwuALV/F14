@@ -1,15 +1,14 @@
-/* --- ESTILOS GENERALES (BASE) --- */
 body {
     background-color: #fae1dd;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Altura completa de la pantalla */
+    height: 100vh; 
     width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: center; /* Esto centra todo vertical y horizontalmente */
+    align-items: center;
     font-family: 'Arial', sans-serif;
-    overflow: hidden; /* Evita barras de scroll */
+    overflow: hidden;
 }
 
 .container {
@@ -19,9 +18,9 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%; /* Ocupa todo el espacio disponible */
+    height: 100%; 
     transition: opacity 1s ease;
-    position: absolute; /* Asegura que se superpongan en el mismo lugar */
+    position: absolute;
     top: 0;
     left: 0;
 }
@@ -31,7 +30,6 @@ body {
     opacity: 0;
 }
 
-/* --- EL SOBRE (DISEÑO GENERAL) --- */
 .envelope-wrapper {
     position: relative;
     background: #cc0000;
@@ -40,9 +38,8 @@ body {
     transition: transform 0.5s;
 }
 
-/* ESTADO ABIERTO (Cuando se abre el sobre) */
 .flap .envelope-wrapper {
-    transform: translateY(50px); /* Baja un poco el sobre para dar espacio a la carta arriba */
+    transform: translateY(50px); 
 }
 
 .envelope {
@@ -52,7 +49,6 @@ body {
     background: #cc0000;
 }
 
-/* Tapa Superior */
 .envelope::before {
     content: '';
     position: absolute;
@@ -65,7 +61,6 @@ body {
     transition: all 0.5s ease-in-out 0.7s;
 }
 
-/* Bolsillo Inferior */
 .envelope::after {
     content: '';
     position: absolute;
@@ -77,10 +72,8 @@ body {
     border-left: 150px solid #ff3333;
 }
 
-/* --- LA CARTA --- */
 .letter {
     position: absolute;
-    /* Centrado horizontal de la carta */
     left: 50%;
     transform: translateX(-50%); 
     bottom: 0;
@@ -91,7 +84,7 @@ body {
     transition: all 1s ease-in-out;
     padding: 15px 10px;
     box-sizing: border-box;
-    z-index: 3; /* Detrás del bolsillo */
+    z-index: 3; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,18 +107,17 @@ body {
     display: block;
 }
 
-/* ANIMACIÓN AL ABRIR */
 .flap .envelope::before {
     transform: rotateX(180deg);
-    z-index: 1; /* La tapa pasa al fondo */
+    z-index: 1;
     border-top-color: #cc0000;
 }
 
 .flap .letter {
-    bottom: 100px; /* Sube la carta */
-    z-index: 11; /* Se pone POR ENCIMA de todo para leerse bien */
+    bottom: 100px;
+    z-index: 11;
     transition-delay: 0.5s;
-    height: 110%; /* Se alarga un poquito para que quepa más texto */
+    height: 110%;
     box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
 }
 
@@ -135,12 +127,11 @@ body {
     font-size: 0.9rem;
     animation: blink 2s infinite;
     position: absolute;
-    bottom: 15%; /* Posición fija relativa a la pantalla */
+    bottom: 15%;
 }
 
 @keyframes blink { 50% { opacity: 0.5; } }
 
-/* --- BOTONES --- */
 .next-btn {
     margin-top: 20px;
     padding: 12px 30px;
@@ -152,14 +143,12 @@ body {
     font-size: 16px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     animation: fadeIn 2s forwards;
-    /* Posición fija para que no empuje el sobre */
     position: absolute; 
     bottom: 10%; 
     z-index: 20;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* --- TEXTOS Y COMPONENTES ADICIONALES --- */
 .message-box { text-align: center; padding: 20px; width: 90%; max-width: 600px; }
 .romantic-text { font-family: 'Georgia', serif; font-style: italic; color: #ad1457; font-size: 1.4rem; margin-bottom: 30px; line-height: 1.5; }
 .whatsapp-wrapper { display: flex; justify-content: center; margin-bottom: 30px;}
@@ -177,7 +166,6 @@ body {
 .view-once-container.opened .one { display: none; }
 .view-once-container.opened .status-text { color: #8696a0; }
 
-/* COLLAGE */
 .collage-title { color: #cc0000; font-family: 'Comic Sans MS', sans-serif; text-align: center; font-size: 1.3rem; margin-bottom: 15px; }
 .collage-grid {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
@@ -188,39 +176,30 @@ body {
 .item-1 { grid-column: span 2; height: 180px; }
 .collage-item img { width: 100%; height: 100%; object-fit: cover; }
 
-/* MODAL */
 .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
 .modal-content { max-width: 95%; max-height: 90%; border-radius: 5px; animation: zoom 0.6s; }
 video.modal-content { width: 95%; background: black; }
 @keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
 .close { position: absolute; top: 20px; right: 20px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 101; background: rgba(0,0,0,0.5); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;}
 
-/* ========================================= */
-/* AJUSTES PARA CELULAR (SOLUCIÓN DEL BUG) */
-/* ========================================= */
 @media (max-width: 600px) {
-    /* El sobre un poco más pequeño en celular para asegurar espacio */
     .envelope { width: 280px; height: 180px; }
     
-    /* Ajuste de triángulos del sobre */
     .envelope::before { border-top-width: 120px; border-right-width: 140px; border-left-width: 140px; }
     .envelope::after { border-right-width: 140px; border-left-width: 140px; border-bottom-width: 100px; }
     
-    /* CARTA EN CELULAR: Aquí estaba el error */
     .letter {
         width: 85%;
-        /* Quitamos left y transform porque ya están arriba */
     }
 
-    /* ESTADO ABIERTO EN CELULAR */
     .flap .letter {
-        bottom: 80px; /* NO 120px. 80px es suficiente para leerse sin salirse */
-        transform: translateX(-50%) scale(1); /* Quitamos el zoom (scale) para que no se salga */
-        height: auto; /* Altura automática según el texto */
-        min-height: 200px; /* Mínimo tamaño */
+        bottom: 80px;
+        transform: translateX(-50%) scale(1);
+        height: auto;
+        min-height: 200px;
     }
 
     .flap .envelope-wrapper {
-        transform: translateY(40px); /* Movemos el sobre menos */
+        transform: translateY(40px);
     }
 }

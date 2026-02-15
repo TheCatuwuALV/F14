@@ -1,4 +1,3 @@
-// VARIABLES
 const envelope = document.getElementById('envelope');
 const hintText = document.querySelector('.hint-text');
 
@@ -11,7 +10,6 @@ const section2 = document.getElementById('section2');
 const section3 = document.getElementById('section3');
 const section4 = document.getElementById('section4');
 
-// VARIABLES FOTOS
 const viewOnceBtn = document.getElementById('viewOnceBtn');
 const photoModal = document.getElementById('photoModal');
 const modalImg = document.getElementById('modalImg');
@@ -19,7 +17,6 @@ const closePhoto = document.getElementById('closePhoto');
 const statusText = document.getElementById('statusText');
 const iconCircle = document.querySelector('#viewOnceBtn .icon-circle');
 
-// VARIABLES VIDEO
 const viewOnceVideoBtn = document.getElementById('viewOnceVideoBtn');
 const videoModal = document.getElementById('videoModal');
 const modalVideo = document.getElementById('modalVideo');
@@ -27,9 +24,7 @@ const closeVideo = document.getElementById('closeVideo');
 const statusVideoText = document.getElementById('statusVideoText');
 const iconVideoCircle = document.querySelector('#viewOnceVideoBtn .icon-circle');
 
-// 1. ABRIR SOBRE
 envelope.addEventListener('click', () => {
-    // Si ya tiene la clase, no hacemos nada (para evitar doble animación rara)
     if (!envelope.classList.contains('flap')) {
         envelope.classList.add('flap');
         
@@ -41,7 +36,6 @@ envelope.addEventListener('click', () => {
     }
 });
 
-// 2. NAVEGACIÓN
 function changeSection(hideSec, showSec) {
     hideSec.style.opacity = '0';
     setTimeout(() => {
@@ -56,7 +50,6 @@ nextBtn1.addEventListener('click', () => changeSection(section1, section2));
 nextBtn2.addEventListener('click', () => changeSection(section2, section3));
 nextBtn3.addEventListener('click', () => changeSection(section3, section4));
 
-// 3. FOTO WHATSAPP
 let isPhotoViewed = false;
 viewOnceBtn.addEventListener('click', () => {
     if (!isPhotoViewed) {
@@ -66,7 +59,6 @@ viewOnceBtn.addEventListener('click', () => {
     }
 });
 
-// COLLAGE
 function openCollage(imgElement) {
     modalImg.src = imgElement.src;
     photoModal.style.display = "flex";
@@ -74,13 +66,11 @@ function openCollage(imgElement) {
 
 closePhoto.addEventListener('click', () => {
     photoModal.style.display = "none";
-    // Solo bloquea si era la imagen 1
     if (isPhotoViewed && modalImg.src.includes("image%201.jpg")) {
         markAsOpened(viewOnceBtn, statusText, iconCircle);
     }
 });
 
-// 4. VIDEO WHATSAPP
 let isVideoViewed = false;
 viewOnceVideoBtn.addEventListener('click', () => {
     if (!isVideoViewed) {
